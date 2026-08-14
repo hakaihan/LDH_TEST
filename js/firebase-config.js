@@ -12,10 +12,11 @@
 // 실제 접근 제어는 Firestore 보안 규칙(README.md 참고)으로 처리합니다.
 
 export const firebaseConfig = {
-  apiKey: "YOUR_API_KEY",
-  authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
-  projectId: "YOUR_PROJECT_ID",
-  storageBucket: "YOUR_PROJECT_ID.appspot.com",
-  messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-  appId: "YOUR_APP_ID",
+  apiKey: "AIzaSyCFv7wTssykCwxoSi6Lr_YxTnOHMxTWxhU",
+  authDomain: "ldh-test-57486.firebaseapp.com",
+  projectId: "ldh-test-57486",
+  storageBucket: "ldh-test-57486.firebasestorage.app",
+  messagingSenderId: "33633992741",
+  appId: "1:33633992741:web:2b36183252aa3b95917fcc",
+  measurementId: "G-FCMRWF2ZQX",
 };
