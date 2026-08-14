@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>반응속도 측정 게임</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="app">
+    <!-- 시작 화면 -->
+    <section id="screen-idle" class="screen screen-idle">
+      <h1>반응속도 측정 게임</h1>
+      <p>버튼을 누르면 게임이 시작됩니다.<br />화면이 빨간색으로 바뀌면 최대한 빨리 클릭하세요!</p>
+      <button id="btn-start" class="btn-primary">게임 시작</button>
+
+      <div class="ranking-box">
+        <h2>최고 기록 TOP 5</h2>
+        <ol id="ranking-list-idle" class="ranking-list">
+          <li class="ranking-empty">기록을 불러오는 중...</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- 게임 진행 화면 (대기: 파란색 / 신호: 빨간색) -->
+    <section id="screen-game" class="screen screen-game screen-hidden">
+      <div id="game-area" class="game-area game-area-wait">
+        <p id="game-message">화면이 빨간색으로 바뀔 때까지 기다리세요...</p>
+      </div>
+    </section>
+
+    <!-- 실패 화면 -->
+    <section id="screen-fail" class="screen screen-fail screen-hidden">
+      <h2>너무 일찍 클릭했습니다!</h2>
+      <p>빨간색으로 바뀐 뒤에 클릭해야 합니다.</p>
+      <button id="btn-retry-fail" class="btn-primary">다시 시도</button>
+    </section>
+
+    <!-- 결과 화면 -->
+    <section id="screen-result" class="screen screen-result screen-hidden">
+      <h2>결과</h2>
+      <p class="result-time"><span id="result-ms">0</span> ms</p>
+
+      <form id="form-nickname" class="nickname-form">
+        <label for="input-nickname">닉네임</label>
+        <input id="input-nickname" type="text" maxlength="20" placeholder="닉네임을 입력하세요" required />
+        <button type="submit" id="btn-save" class="btn-primary">기록 저장</button>
+      </form>
+      <p id="save-status" class="save-status"></p>
+
+      <div class="ranking-box">
+        <h2>최고 기록 TOP 5</h2>
+        <ol id="ranking-list-result" class="ranking-list">
+          <li class="ranking-empty">기록을 불러오는 중...</li>
+        </ol>
+      </div>
+
+      <button id="btn-retry-result" class="btn-secondary">다시 도전하기</button>
+    </section>
+  </div>
+
+  <script type="module" src="./js/main.js"></script>
+</body>
+</html>

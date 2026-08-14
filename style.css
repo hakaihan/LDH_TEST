@@ -1,0 +1,190 @@
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: "Pretendard", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  background: #111;
+  color: #fff;
+}
+
+#app {
+  min-height: 100vh;
+}
+
+.screen {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 24px;
+}
+
+.screen-hidden {
+  display: none !important;
+}
+
+/* 시작 화면 */
+.screen-idle {
+  background: #1a1a2e;
+}
+
+.screen-idle h1 {
+  margin-bottom: 8px;
+}
+
+.screen-idle p {
+  margin-bottom: 24px;
+  line-height: 1.6;
+  color: #ccc;
+}
+
+/* 게임 진행 화면 */
+.screen-game {
+  padding: 0;
+}
+
+.game-area {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.05s linear;
+}
+
+.game-area-wait {
+  background: #1565c0; /* 파란색: 대기 중 */
+}
+
+.game-area-ready {
+  background: #d32f2f; /* 빨간색: 클릭 신호 */
+}
+
+.game-area p {
+  font-size: 1.4rem;
+  padding: 0 16px;
+}
+
+/* 실패 화면 */
+.screen-fail {
+  background: #4a1414;
+}
+
+/* 결과 화면 */
+.screen-result {
+  background: #1b5e20; /* 초록색: 결과 화면 */
+}
+
+.result-time {
+  font-size: 3rem;
+  font-weight: bold;
+  margin: 8px 0 24px;
+}
+
+.nickname-form {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 8px;
+}
+
+.nickname-form input {
+  padding: 10px 12px;
+  border-radius: 6px;
+  border: none;
+  font-size: 1rem;
+  min-width: 200px;
+}
+
+.save-status {
+  min-height: 1.2em;
+  margin-bottom: 16px;
+  font-size: 0.9rem;
+  color: #dfffe0;
+}
+
+button {
+  font-family: inherit;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.btn-primary {
+  padding: 12px 28px;
+  border: none;
+  border-radius: 8px;
+  background: #fff;
+  color: #111;
+  font-weight: bold;
+}
+
+.btn-primary:hover {
+  background: #e0e0e0;
+}
+
+.btn-secondary {
+  margin-top: 16px;
+  padding: 10px 20px;
+  border: 1px solid #fff;
+  border-radius: 8px;
+  background: transparent;
+  color: #fff;
+}
+
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.ranking-box {
+  margin-top: 24px;
+  width: 100%;
+  max-width: 360px;
+}
+
+.ranking-box h2 {
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+}
+
+.ranking-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.ranking-list li {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 14px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  font-size: 0.95rem;
+}
+
+.ranking-list li:last-child {
+  border-bottom: none;
+}
+
+.ranking-list .ranking-empty {
+  justify-content: center;
+  color: #ccc;
+}
+
+.ranking-list .rank-nickname {
+  text-align: left;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 60%;
+}
