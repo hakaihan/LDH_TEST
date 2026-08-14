@@ -1,7 +1,16 @@
 import { GameState, getRandomDelay } from "./game.js";
-import { saveScore, getTop } from "./score.js";
 
 const TOP_N = 5;
+
+// score.js는 Firebase(외부 CDN) 모듈을 불러오므로, 네트워크 문제나 설정 미완료로
+// 로드에 실패하더라도 게임 자체(시작/대기/신호/측정)는 항상 동작하도록 동적 import로 분리한다.
+let scoreModulePromise = null;
+function loadScoreModule() {
+  if (!scoreModulePromise) {
+    scoreModulePromise = import("./score.js");
+  }
+  return scoreModulePromise;
+}
 
 const screens = {
   idle: document.getElementById("screen-idle"),
@@ -78,6 +87,7 @@ function showResult(ms) {
 async function renderRanking(listEl) {
   listEl.innerHTML = '<li class="ranking-empty">기록을 불러오는 중...</li>';
   try {
+    const { getTop } = await loadScoreModule();
     const top = await getTop(TOP_N);
     if (top.length === 0) {
       listEl.innerHTML = '<li class="ranking-empty">아직 등록된 기록이 없습니다.</li>';
@@ -123,6 +133,7 @@ formNickname.addEventListener("submit", async (event) => {
   saveStatus.textContent = "저장 중...";
 
   try {
+    const { saveScore } = await loadScoreModule();
     await saveScore(nickname, lastReactionMs);
     saveStatus.textContent = "기록이 저장되었습니다!";
     await renderRanking(rankingListResult);
